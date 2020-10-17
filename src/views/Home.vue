@@ -1,9 +1,14 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Vue logo" src="../assets/logo.png" />
   </div>
   <div>
-    <RandomTextApi/>
+    <h2>Parent Input </h2>
+    <input v-model="userInput" type="text" name="" id="" />
+  </div>
+  <div>
+    <RandomTextApi v-bind:userInput="userInput" /> 
+    <!-- V-BIND really important, otherwise you Only pass a String instead of dynamic props!!! -->
   </div>
 </template>
 
@@ -11,9 +16,14 @@
 // @ is an alias to /src
 import RandomTextApi from "../components/RandomTextApi";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    RandomTextApi
-  }
-}
+    RandomTextApi,
+  },
+  data: function () {
+    return {
+      userInput: "",
+    };
+  },
+};
 </script>
