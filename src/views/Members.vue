@@ -14,10 +14,13 @@
     </ul>
     <h3>{{counter}}</h3>
     <button @click="addMethod">Add</button>
+    <Calculator/>
   </div>
 </template>
 
 <script>
+import Calculator from "../components/Calculator";
+
 export default {
   name: "Members",
   data: () => ({
@@ -38,6 +41,9 @@ export default {
       toggleFinish(member){
           member.finished = !member.finished;
       }
+  },
+  components: {
+    Calculator
   }
     
 };
